@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import companylogo from '../public/companylogo.png';
 import Link from 'next/link';
 
 export const Navbar = () => {
@@ -8,9 +7,8 @@ export const Navbar = () => {
     <nav className='bg-black px-2 sm:px-4 py-2.5 dark:bg-gray-900 w-full z-20 top-0 left-0 '>
       <div className='container flex justify-between items-center  mx-auto '>
         <a href='#' className='flex items-center'>
-          
           <span className='self-center text-3xl font-semibold whitespace-nowrap text-white'>
-            Tech-<span className="text-red-500">Creator</span>
+            Tech-<span className='text-red-500'>Creator</span>
           </span>
         </a>
         <div className=' items-center md:flex md:w-auto md:order-1 uppercase '>
@@ -40,9 +38,9 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href='/contact'>
+              <Link href='/todo'>
                 <a className='text-xl block py-2 pr-4 pl-3 text-white rounded hover:text-red-500 md:p-0'>
-                  Contact
+                  Todo
                 </a>
               </Link>
             </li>
