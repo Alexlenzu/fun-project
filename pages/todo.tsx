@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 const Todo = () => {
-  const [task, setTask] = useState<string>("");
+  const [task, setTask] = useState<string>('');
   const [todoList, setTodoList] = useState<string[]>([]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setTask(e.currentTarget.value);
   };
@@ -16,6 +16,12 @@ const Todo = () => {
 
   const handleClear = () => {
     setTodoList([]);
+  };
+
+  const handleRemove = (index: number) => {
+    const newState = [...todoList];
+    newState.splice(index, 1);
+    setTodoList(newState);
   };
   return (
     <form className='bg-black' onSubmit={(e) => handleSubmit(e)}>
@@ -53,7 +59,12 @@ const Todo = () => {
                 className='text-white justify-center mt-10 list-decimal text-3xl'
               >
                 {todo}
-                <button className="text-red-500 ml-10">x</button>
+                <button
+                  className='text-red-500 ml-10'
+                  onClick={() => handleRemove(index)}
+                >
+                  x
+                </button>
               </li>
             );
           })}
